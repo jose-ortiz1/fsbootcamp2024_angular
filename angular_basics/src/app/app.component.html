@@ -2,6 +2,42 @@
 <h2>My name is {{name}}</h2>
 <h3>{{person.id}}{{person.name}}</h3>
 
+<app-home></app-home>
+
 <ul>
-  <li *ngFor="let person of persons">{{person.name}}</li>
+  <li *ngFor="let person of persons">ID: {{person.id}}, name is: {{person.name}} and age is: {{person.age}}</li>
 </ul>
+
+<h2>Two ways to displaying values from variables in Angular</h2>
+<div>
+  <h3 style="color: {{color_red}};">This is an example of interpolation,</h3><br>
+  Title <input type="text" value="{{title}}">
+  <button (click)="userSaved()">Submit</button>
+</div>
+
+<div>
+  <h3 [style.color]="color_blue">This is an example of property binding,</h3><br>
+  Title <input type="text" [value]="title">
+  <button [disabled]="isDisabled">Submit</button>
+</div>
+
+<div>
+  <h3>NgModel Example using property binding</h3>
+  <input type="text" [ngModel]="title">
+</div>
+
+<div>
+  <h3>NgModel Example using two way binding</h3>
+  <input type="text" [(ngModel)]="title">
+</div>
+
+<div>
+  <h2 [ngClass]="bg_color_class">Adding image using interpolation:</h2><br>
+  <img src="{{imageUrlCat}}" alt="Image not found">
+</div>
+
+<div>
+  <h2 [class]="bg_color_class">Adding image using property binding:</h2><br>
+  <img [src]="imageUrlDog" alt="Image not found">
+</div>
+
