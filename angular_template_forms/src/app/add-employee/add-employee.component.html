@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>Add Employee</h1>
+    <form #addEmployeeForm="ngForm" (ngSubmit)="submitEmployee(addEmployeeForm)">
+        <div class="mb-3">
+            <label for="email">Email</label>
+            <input class="form-control" type="email" name="email" [(ngModel)]="empDetails.email" pattern=".*@[a-zA-Z0-9.-]*" required #emailVal="ngModel">
+            <div *ngIf="emailVal.invalid && emailVal.touched">Please provide a valid email</div>
+        </div>
+        <div class="mb-3">
+            <label for="firts_name">First Name</label>
+            <input class="form-control" type="first_name" name="first_name" [(ngModel)]="empDetails.first_name" required #firstNameVal="ngModel">
+            <div *ngIf="firstNameVal.invalid && firstNameVal.touched">Please provide a valid name</div>
+        </div>
+        <div class="mb-3">
+            <label for="last_name">Last Name</label>
+            <input class="form-control" type="last_name" name="last_name" [(ngModel)]="empDetails.last_name" >
+        </div>
+        <div class="mb-3">
+            <label for="salary">Salary</label>
+            <input class="form-control" type="salary" name="salary" [(ngModel)]="empDetails.salary" >
+        </div>
+        <div class="mb-3">
+            <label for="department">Department</label>
+            <input class="form-control" type="department" name="department" [(ngModel)]="empDetails.department" required #departmentVal="ngModel">
+            <div *ngIf="departmentVal.invalid && departmentVal.touched">Please provide a valir department</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Employee</button>
+    </form>
+</div>
