@@ -1,0 +1,40 @@
+<div class="container">
+    <h2>Add Employee</h2>
+    <form [formGroup]="employeeForm" method="POST">
+        <div class="mb-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" formControlName="email">
+            <div class="text-danger" *ngIf="employeeForm.get('email')?.touched && employeeForm.get('email')?.errors?.['required']">Email is required</div>
+            <div class="text-danger" *ngIf="employeeForm.get('email')?.touched && employeeForm.get('email')?.errors?.['email']">Email is invalid</div>
+        </div>
+        <div class="mb-3">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" formControlName="password">
+            <div class="text-danger" *ngIf="employeeForm.get('password')?.touched && employeeForm.get('password')?.errors?.['required']">Password is required</div>
+            <div class="text-danger" *ngIf="employeeForm.get('password')?.touched && employeeForm.get('password')?.errors?.['minlength']">Password must have atleast 6 characters</div>
+        </div>
+        <div class="mb-3">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" formControlName="firstName">
+            <div class="text-danger" *ngIf="employeeForm.get('firstName')?.touched && employeeForm.get('firstName')?.errors?.['required']">First Name is required</div>
+        </div>
+        <div class="mb-3">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" formControlName="lastName">
+        </div>
+        <div class="mb-3">
+            <label for="salary">Salary</label>
+            <input type="text" class="form-control" name="salary" formControlName="salary">
+        </div>
+        <div class="mb-3">
+            <label for="department">Department</label>
+            <input type="text" class="form-control" name="department" formControlName="department">
+            <div class="text-danger" *ngIf="employeeForm.get('department')?.touched && employeeForm.get('department')?.errors?.['required']">Department is required</div>
+        </div>
+
+        <button class="btn btn-primary" (click)="addEmployee()">Add Employee</button>
+        
+
+    </form>
+
+</div>
