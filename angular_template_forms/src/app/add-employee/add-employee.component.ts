@@ -22,8 +22,6 @@ export class AddEmployeeComponent {
 
   }
 
-
-
   submitEmployee(emp_form:any){
     
 

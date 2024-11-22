@@ -4,26 +4,39 @@
         <div class="mb-3">
             <label for="email">Email</label>
             <input class="form-control" type="email" name="email" [(ngModel)]="empDetails.email" pattern=".*@[a-zA-Z0-9.-]*" required #emailVal="ngModel">
-            <div *ngIf="emailVal.invalid && emailVal.touched">Please provide a valid email</div>
+            <div class="text-danger" *ngIf="emailVal.touched && emailVal.errors && emailVal.errors['required']">Please enter your email</div>
+            <div class="text-danger" *ngIf="emailVal.touched && emailVal.errors && emailVal.errors['pattern']">Please provide a vaild email</div>
+            <!-- OR -->
+             <!-- <div *ngIf="emailVal.touched && emailVal.errors">
+                <div *ngIf="emailVal.errors['required']">Please enter your email</div>
+                <div *ngIf="emailVal.errors['pattern']">Please provide a vaild email</div>
+             </div> -->
         </div>
         <div class="mb-3">
             <label for="firts_name">First Name</label>
-            <input class="form-control" type="first_name" name="first_name" [(ngModel)]="empDetails.first_name" required #firstNameVal="ngModel">
-            <div *ngIf="firstNameVal.invalid && firstNameVal.touched">Please provide a valid name</div>
+            <input class="form-control" type="first_name" name="first_name" minlength="3" [(ngModel)]="empDetails.first_name" required #firstNameVal="ngModel">
+            <div class="text-danger" *ngIf="firstNameVal.touched && firstNameVal.errors">
+                <div *ngIf="firstNameVal.errors['required']">Please enter your name</div>
+                <div *ngIf="firstNameVal.errors['minlength']">First Name should have atleast 3 characters</div>
+            </div>
         </div>
+
         <div class="mb-3">
             <label for="last_name">Last Name</label>
             <input class="form-control" type="last_name" name="last_name" [(ngModel)]="empDetails.last_name" >
         </div>
+
         <div class="mb-3">
             <label for="salary">Salary</label>
             <input class="form-control" type="salary" name="salary" [(ngModel)]="empDetails.salary" >
         </div>
+
         <div class="mb-3">
             <label for="department">Department</label>
             <input class="form-control" type="department" name="department" [(ngModel)]="empDetails.department" required #departmentVal="ngModel">
-            <div *ngIf="departmentVal.invalid && departmentVal.touched">Please provide a valir department</div>
+            <div class="text-danger" *ngIf="departmentVal.invalid && departmentVal.touched">Please provide a department</div>
         </div>
-        <button type="submit" class="btn btn-primary">Add Employee</button>
+        
+        <button type="submit" class="btn btn-outline-primary">Add Employee</button>
     </form>
 </div>
