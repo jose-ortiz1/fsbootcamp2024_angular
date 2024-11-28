@@ -1,0 +1,21 @@
+html, body {
+    height: 100%; /* Ensures the full height is considered */
+    margin: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  footer {
+    margin-top: auto; /* Pushes the footer to the bottom */
+    padding: 1rem 0;
+    width: 100%; /* Ensures the footer spans the viewport width */
+    background-color: #f8f9fa; /* Light gray background */
+  }
+  .container {
+    max-width: 1200px; /* Keep the content centered */
+    padding: 0 15px; /* Add horizontal padding inside */
+  }
+  

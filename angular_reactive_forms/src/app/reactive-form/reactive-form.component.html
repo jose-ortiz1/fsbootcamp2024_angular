@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Add Employee</h2>
+    <h2 class="mt-2">Add Employee</h2>
     <form [formGroup]="employeeForm" method="POST">
         <div class="mb-3">
             <label for="email">Email</label>
@@ -12,6 +12,7 @@
             <input type="password" class="form-control" name="password" formControlName="password">
             <div class="text-danger" *ngIf="employeeForm.get('password')?.touched && employeeForm.get('password')?.errors?.['required']">Password is required</div>
             <div class="text-danger" *ngIf="employeeForm.get('password')?.touched && employeeForm.get('password')?.errors?.['minlength']">Password must have atleast 6 characters</div>
+            <div class="text-danger" *ngIf="employeeForm.get('password')?.touched && employeeForm.get('password')?.errors?.['weakPassword']">Please provide a strong password</div>
         </div>
         <div class="mb-3">
             <label for="firstName">First Name</label>
@@ -32,7 +33,7 @@
             <div class="text-danger" *ngIf="employeeForm.get('department')?.touched && employeeForm.get('department')?.errors?.['required']">Department is required</div>
         </div>
 
-        <button class="btn btn-primary" (click)="addEmployee()">Add Employee</button>
+        <button class="btn btn-primary mb-3" (click)="addEmployee()">Add Employee</button>
         
 
     </form>
