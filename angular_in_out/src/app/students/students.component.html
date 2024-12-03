@@ -1,0 +1,13 @@
+<h3>Title form the parent component</h3>
+<p>{{title_from_parent}}</p>
+
+<h3>Student Details</h3>
+<ul>
+    <li>{{student_obj_from_parent.id}}</li>
+    <li>{{student_obj_from_parent.name}}</li>
+    <li>{{student_obj_from_parent.age}}</li>
+</ul>
+
+
+<input type="text" #sendInputVal>
+<button (click)="addVal(sendInputVal.value)">Send</button>
