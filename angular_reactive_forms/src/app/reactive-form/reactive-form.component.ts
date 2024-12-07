@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { AddEmployeeService } from '../services/add-employee.service';
 import { Router } from '@angular/router';
 import { ValidatePassword } from '../custom-password-validation';
 
