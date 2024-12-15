@@ -1,8 +1,40 @@
 <div class="container mt-3">
-    <ul>
+    <ul *ngIf="employees">
         <li *ngFor="let emp of employees">
-            <a [routerLink]="['/employees', emp.id]">{{emp.name}}</a> 
+            <a [routerLink]="['/employees', emp.employee_id]">{{emp.first_name}}</a> 
         </li>
     </ul>
-    <p>{{details}}</p>
+    <!-- <p>{{details}}</p> -->
 </div>
+
+
+<table class="container table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Employee ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Department</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="employees">
+      <tr *ngFor="let emp of employees">
+        <th scope="row" [routerLink]="['/employees', emp.employee_id]">{{emp.employee_id}}</th>
+        <td>{{emp.first_name}}</td>
+        <td>{{emp.last_name}}</td>
+        <td>{{emp.email}}</td>
+        <td>{{emp.salary}}</td>
+        <td>{{emp.department_id}}</td>
+        <td >
+          <!-- (click)="updateEmployee(emp.employee_id) -->
+          <a [routerLink]="['/add_employee', emp.employee_id]">
+            <button type="button" class="btn btn-warning me-2">Edit</button>
+          </a>
+          <button type="button" class="btn btn-danger" (click)="delEmployee(emp.employee_id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

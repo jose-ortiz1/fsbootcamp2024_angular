@@ -4,6 +4,8 @@
         <div class="mb-3">
             <label for="email">Email</label>
             <input type="email" class="form-control" name="email" formControlName="email">
+            <input type="hidden" class="form-control" name="employee_id" formControlName="employee_id">
+
             <div class="text-danger" *ngIf="employeeForm.get('email')?.touched && employeeForm.get('email')?.errors?.['required']">Email is required</div>
             <div class="text-danger" *ngIf="employeeForm.get('email')?.touched && employeeForm.get('email')?.errors?.['email']">Email is invalid</div>
         </div>

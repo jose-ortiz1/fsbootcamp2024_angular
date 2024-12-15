@@ -6,7 +6,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 export const routes: Routes = [
 
 
-    { path: 'add_employee', component: ReactiveFormComponent},
+    {path: 'add_employee', component: ReactiveFormComponent},
+    {path: 'add_employee/:id', component: ReactiveFormComponent},
+
     {path: 'employees', component: EmployeesComponent},
     {path: 'employees/:id', component: EmployeesComponent},
     {path: '', redirectTo: '/employees', pathMatch: 'full'},
